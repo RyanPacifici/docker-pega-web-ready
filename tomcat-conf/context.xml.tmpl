@@ -30,6 +30,10 @@
   {{ else }}
   <Environment name="prconfig/database/databases/CustomerData/defaultSchema" value="{{ .Env.DATA_SCHEMA }}" type="java.lang.String" />
   {{ end }}
+  {{ if .Env.ENGINE_CODESET }}
+  <Environment name="prbootstrap/com.pega.pegarules.bootstrap.codeset.version.Pega-EngineCode" value="{{ .Env.ENGINE_CODESET }}" type="java.lang.String" />
+  {{ end }}
+
   <Environment name="prconfig/database/drivers" value="com.microsoft.sqlserver.jdbc.SQLServerDriver;oracle.jdbc.OracleDriver;org.postgresql.Driver;com.ibm.db2.jcc.DB2Driver" type="java.lang.String" />
 </Context>   
 
